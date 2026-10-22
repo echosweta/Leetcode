@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string makeGood(string s) {
+        stack<char> st;
+        for (char x : s) {
+            if (isupper(x) && !st.empty()) {
+                if (st.top() == tolower(x)) {
+                    st.pop();
+                } else
+                    st.push(x);
+            } else {
+                if (!st.empty() && st.top() == toupper(x)) {
+                    st.pop();
+                } else
+                    st.push(x);
+            }
+        }
+        s = "";
+        while (!st.empty()) {
+            char ans = st.top();
+            s += ans;
+            st.pop();
+        }
+        reverse(s.begin(), s.end());
+
+        return s;
+    }
+};
