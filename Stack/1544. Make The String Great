@@ -26,3 +26,46 @@ public:
         return s;
     }
 };
+
+
+-------
+optimal solution
+
+class Solution {
+public:
+    string makeGood(string s) {
+       // stack<char> st;
+       string ans = "";
+        for (char x : s) {
+            // if (isupper(s[i])) {
+            //     if (i-1>=0 && s[i-1]==islower(s[i])) {
+            //       continue;
+            //     } else
+            //         ans+=s[i];
+            // } else {
+            //     if (i-1>=0 && s[i-1]==isupper(s[i])) {
+            //         continue;
+            //     } else
+            //          ans+=s[i];
+            // }
+
+            if(!ans.empty() && abs(ans.back()-x)==32) //abs diff of tow uCase/Lcase will always be 32
+            {
+                ans.pop_back();
+            }
+            else
+            ans+=x;
+
+        }
+        // s = "";
+        // while (!st.empty()) {
+        //     char ans = st.top();
+        //     s += ans;
+        //     st.pop();
+        // }
+        // reverse(s.begin(), s.end());
+
+        return ans;
+    }
+};
+
