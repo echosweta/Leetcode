@@ -1,0 +1,1 @@
+Interview trick: For the general problem where elements must appear more than \(n/k\) times, there can be at most \(k-1\) majority elements.
