@@ -1,0 +1,49 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+        vector<int> ans;
+        bool found = false;
+
+        // for (int i = 0; i < nums.size(); i++) {
+        //     if (found)
+        //         break;
+        //     for (int j = 0; j < nums.size(); j++) {
+        //         if (found)
+        //             break;
+        //         if (i == j)
+        //             continue;
+
+        //         else if (nums[i] + nums[j] == target) {
+        //             ans.push_back(i + 1);
+        //             ans.push_back(j + 1);
+        //             found = true;
+
+        //         }
+
+        //         else
+        //             continue;
+        //     }
+        // }
+
+        // two pointer
+
+        int i = 0;
+        int j = nums.size() - 1;
+
+        while (i < j) {
+            if (nums[i] + nums[j] == target) {
+                ans.push_back(i + 1);
+                ans.push_back(j + 1);
+                break;
+            }
+
+            if (nums[i] + nums[j] > target)
+                j--;
+            else
+                i++;
+        }
+
+        return ans;
+    }
+};
